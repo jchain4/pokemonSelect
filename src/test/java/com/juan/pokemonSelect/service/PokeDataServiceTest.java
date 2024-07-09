@@ -27,7 +27,7 @@ public class PokeDataServiceTest {
 
     @BeforeEach
     public void setUp() {
-// Crea algunos Pokemon de prueba
+        // Crea algunos Pokemon de prueba
         Pokemon pokemon1 = new Pokemon("Bulbasaur", 1, 1, 1);
         Pokemon pokemon2 = new Pokemon("Ivysaur", 4, 2, 22);
         Pokemon pokemon3 = new Pokemon("Venusaur", 5, 4, 21);
@@ -36,13 +36,7 @@ public class PokeDataServiceTest {
 
         // Crea una respuesta de prueba
         PokemonListResponse response = new PokemonListResponse();
-        response.setResults(Arrays.asList(
-                new PokemonResult("Bulbasaur", "https://pokeapi.co/api/v2/pokemon/1/"),
-                new PokemonResult("Ivysaur", "https://pokeapi.co/api/v2/pokemon/2/"),
-                new PokemonResult("Venusaur", "https://pokeapi.co/api/v2/pokemon/3/"),
-                new PokemonResult("Squirtle", "https://pokeapi.co/api/v2/pokemon/4/"),
-                new PokemonResult("Wartotle", "https://pokeapi.co/api/v2/pokemon/5/")
-        ));
+        response.setResults(Arrays.asList(new PokemonResult("Bulbasaur", "https://pokeapi.co/api/v2/pokemon/1/"), new PokemonResult("Ivysaur", "https://pokeapi.co/api/v2/pokemon/2/"), new PokemonResult("Venusaur", "https://pokeapi.co/api/v2/pokemon/3/"), new PokemonResult("Squirtle", "https://pokeapi.co/api/v2/pokemon/4/"), new PokemonResult("Wartotle", "https://pokeapi.co/api/v2/pokemon/5/")));
 
         // Configura el mock para devolver la respuesta de prueba cuando se llama a getForObject
         when(restTemplate.getForObject("https://pokeapi.co/api/v2/pokemon", PokemonListResponse.class)).thenReturn(response);
